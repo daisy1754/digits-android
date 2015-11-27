@@ -44,17 +44,16 @@ class DigitsErrorCodes implements ErrorCodes {
 
     private final Resources resources;
 
-
     DigitsErrorCodes(Resources resources) {
         this.resources = resources;
     }
 
-
     @Override
     public String getMessage(int code) {
-        final int id = codeIdMap.get(code, TwitterApiErrorConstants.UNKNOWN_ERROR);
-        return id == TwitterApiErrorConstants.UNKNOWN_ERROR ? getDefaultMessage() : resources
-                .getString(id);
+        if (codeIdMap.indexOfKey(code) < 0) {
+            return getDefaultMessage();
+        }
+        return resources.getString(codeIdMap.get(code));
     }
 
     @Override
