@@ -67,7 +67,7 @@ public class DigitsMainActivity extends Activity {
             public void success(DigitsSession session, String phoneNumber) {
                 Toast.makeText(DigitsMainActivity.this,
                         "Authentication Successful for " + phoneNumber, Toast.LENGTH_SHORT).show();
-                userIdView.setText(getString(R.string.user_id, session.getId()));
+                userIdView.setText(getString(R.string.user_id, session.getUserId()));
                 if (session.getAuthToken() instanceof TwitterAuthToken) {
                     final TwitterAuthToken authToken = (TwitterAuthToken) session.getAuthToken();
                     tokenView.setText(getString(R.string.token, authToken.token));

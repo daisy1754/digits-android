@@ -68,11 +68,19 @@ public class DigitsSession extends Session<AuthToken> {
     }
 
     public boolean isLoggedOutUser() {
-        return getId() == DigitsSession.LOGGED_OUT_USER_ID;
+        return getUserId() == DigitsSession.LOGGED_OUT_USER_ID;
     }
 
     public boolean isValidUser() {
-        return isValidUserId(getId()) && isValidUserToken(getAuthToken());
+        return isValidUserId(getUserId()) && isValidUserToken(getAuthToken());
+    }
+
+    /**
+     * Returns a unique ID of the authenticated user tied to this session. Note this method
+     * returns a valid ID if and only if {@link #isValidUser()} is {@code true}.
+     */
+    public long getUserId() {
+        return getId();
     }
 
     private boolean isValidUserId(long id) {
