@@ -24,7 +24,7 @@ import android.util.SparseIntArray;
 import com.twitter.sdk.android.core.TwitterApiErrorConstants;
 
 /**
- * More error information go/daasErrors
+ * Common error messages used in digits SDK.
  */
 class DigitsErrorCodes implements ErrorCodes {
     private static final int INITIAL_CAPACITY = 10;
