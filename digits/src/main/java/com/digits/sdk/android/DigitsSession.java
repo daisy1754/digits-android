@@ -83,6 +83,15 @@ public class DigitsSession extends Session<AuthToken> {
         return getId();
     }
 
+    /**
+     * Deprecated. Use {@link #getUserId()} to get ID of the user associated to this session.
+     */
+    @Deprecated
+    @Override
+    public long getId() {
+        return super.getId();
+    }
+
     private boolean isValidUserId(long id) {
         return !isLoggedOutUser() && id != UNKNOWN_USER_ID;
     }
