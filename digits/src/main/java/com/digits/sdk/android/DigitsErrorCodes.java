@@ -50,10 +50,8 @@ class DigitsErrorCodes implements ErrorCodes {
 
     @Override
     public String getMessage(int code) {
-        if (codeIdMap.indexOfKey(code) < 0) {
-            return getDefaultMessage();
-        }
-        return resources.getString(codeIdMap.get(code));
+        final int index = codeIdMap.indexOfKey(code);
+        return index < 0 ? getDefaultMessage() : resources.getString(codeIdMap.valueAt(index));
     }
 
     @Override
